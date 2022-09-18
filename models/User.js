@@ -30,4 +30,4 @@ const { Schema, model } = require('mongoose');
 
  const User = model('user', userSchema);
 
- model.exports = User;
+ module.exports = User;
