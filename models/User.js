@@ -14,7 +14,7 @@ const { Schema, model } = require('mongoose');
             unique: true,
             match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
          },
-         thoughts: [{ type: Schema.Types.ObjectId, ref: 'thought' }],
+         thought: [{ type: Schema.Types.ObjectId, ref: 'thought' }],
          friend: [{ type: Schema.Types.ObjectId, ref: 'user' }]
     },
     {
@@ -27,6 +27,10 @@ const { Schema, model } = require('mongoose');
  userSchema.virtual('friendCount').get(function () {
     return this.friend.length;
  });
+
+//  userSchema.post('remove', function( doc ){
+
+//  })
 
  const User = model('user', userSchema);
 
